@@ -22,7 +22,7 @@ PayMob(We Accept) Integration
 Require via composer
 
 ```bash
-$ composer require coder79/laravel-paymob
+$ composer require coder79/laravel-paymob:dev-master
 ```
 
 In `config/app.php` file
