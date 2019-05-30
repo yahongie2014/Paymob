@@ -1,0 +1,49 @@
+{
+  "name": "coder79/laravel-paymob",
+  "description": "Laravel-paymob is a simple package to process payments throught Paymob payment gateway.",
+  "keywords": [
+    "http",
+    "payment",
+    "paymob",
+    "Egypt",
+    "laravel payfort"
+  ],
+  "authors": [
+    {
+      "name": "coder79",
+      "email": "dev.ahmed.saeed@gmail.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/yahongie2014/payfort/issues",
+    "source": "https://github.com/yahongie2014/payfort"
+  },
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": ">=5.5.9",
+    "laravel/framework": "5.*",
+    "illuminate/support": "5.*",
+    "nesbot/carbon": "~1.0",
+    "guzzlehttp/guzzle": "~5.0|~6.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0",
+    "fabpot/goutte": "~3.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Coder79\\PayMob\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Coder79\\PayMob\\PayMobServiceProvider"
+      ],
+      "aliases": {
+        "PayMob": "Coder79\\PayMob\\Facades\\PayMob"
+      }
+    }
+  }
+}
