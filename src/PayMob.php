@@ -34,19 +34,11 @@ class PayMob
      */
     protected function GETcURL($url)
     {
-        // Create curl resource
-        $ch = curl_init($url);
-        // Request headers
-        $headers = array();
-        $headers[] = 'Content-Type: application/json';
-        // Return the transfer as a string
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        // $output contains the output string
-        $output = curl_exec($ch);
-        // Close curl resource to free up system resources
-        curl_close($ch);
-        return json_decode($output);
+        $client = new Client([
+            'headers' => ['Content-Type' => 'application/json']
+        ]);
+        $response = $client->get($url);
+        return json_decode($response->getBody());
     }
     /**
      * Request auth token from paymob servers.
@@ -83,7 +75,7 @@ class PayMob
             'merchant_id'            => $merchant_id,
             'amount_cents'           => $amount_cents,
             'merchant_order_id'      => $merchant_order_id,
-            'currency'               => 'EGP',
+            'currency'               => config('paymob.currency'),
             'notify_user_with_email' => true
         ];
         // Send curl
