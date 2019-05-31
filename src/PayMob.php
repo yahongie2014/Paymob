@@ -68,7 +68,7 @@ class PayMob
      * @param  int  $merchant_order_id
      * @return array
      */
-    public function makeOrderPaymob($token, $merchant_id, $amount_cents, $merchant_order_id)
+    public function makeOrderPaymob($token, $merchant_id, $amount_cents, $merchant_order_id,$user_name,$phone,$email)
     {
         // Request body
         $json = [
@@ -76,7 +76,20 @@ class PayMob
             'amount_cents'           => $amount_cents,
             'merchant_order_id'      => $merchant_order_id,
             'currency'               => config('paymob.currency'),
-            'notify_user_with_email' => true
+            'notify_user_with_email' => true,
+            "shipping_data" => [
+                "first_name" => $user_name,
+                "phone_number" => $phone,
+                "last_name" => $user_name,
+                "email" => $email,
+                "apartment" => "803",
+                "floor" => "42",
+                "street" => "sample street",
+                "building" => "4055",
+                "postal_code" => "13211",
+                "country" => "EG",
+                "city" => "Cairo"
+            ]
         ];
         // Send curl
         $order = $this->cURL(
@@ -287,7 +300,7 @@ class PayMob
                     'username' => "coder79",
                     'first_name' => "",
                     'last_name' => "",
-                    'date_joined' => "2017-07-20T14=>50=>26",
+                    'date_joined' => "2019-05-30T14=>50=>26",
                     'email' => "a.saeed@programmer.net",
                     'is_active' => true,
                     'is_staff' => false,
@@ -405,7 +418,7 @@ class PayMob
                                     'building' => 'null',
                                     'floor' => 'null',
                                     'apartment' => 'null',
-                                    'city' => 'El Gouna',
+                                    'city' => 'Cairo',
                                     'state' => 'NA',
                                     'country' => 'EG',
                                     'email' => 'a.saeed@programmer.net',

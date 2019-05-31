@@ -6,7 +6,7 @@
     "payment",
     "paymob",
     "Egypt",
-    "laravel payfort"
+    "laravel paymob"
   ],
   "authors": [
     {
@@ -15,8 +15,8 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/yahongie2014/payfort/issues",
-    "source": "https://github.com/yahongie2014/payfort"
+    "issues": "https://github.com/yahongie2014/paymob/issues",
+    "source": "https://github.com/yahongie2014/paymob"
   },
   "type": "library",
   "license": "MIT",
