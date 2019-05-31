@@ -12,10 +12,9 @@ PayMob(We Accept) Integration
         2. [Mobile clients](#mobile-clients)
 
 3. [PayMobController](#paymobcontroller)
-4. [PayMob Postman Collection](#paymob-postman-collection)
-5. [Other PayMob Methods](#other-paymob-methods)
-6. [TODO](#todo)
-7. [License](#license)
+4. [Other PayMob Methods](#other-paymob-methods)
+5. [TODO](#todo)
+6. [License](#license)
 
 ## Installation
 
@@ -83,7 +82,11 @@ $paymobOrder = PayMob::makeOrderPaymob(
     $auth->token, // this is token from step 1.
     $auth->profile->id, // this is the merchant id from step 1.
     $order->totalCost * 100, // total amount by cents/piasters.
-    $order->id // your (merchant) order id.
+    $order->id, // your (merchant) order id.
+	$request->user()->name, // Order User Name.
+    $request->user()->phone,// Order User phone.
+    $request->user()->email // Order User email.
+
 );
 // Run this method to get a sample response of make order request.
 PayMob::sample('makeOrderPaymob');
